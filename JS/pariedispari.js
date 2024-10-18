@@ -9,12 +9,12 @@
 // # VARIABILI
 
 const validChoices = ["pari", "dispari"];
-const validNumbers = ["1", "2", "3", "4", "5"];
 
 let userChoice = askString(validChoices, "Scegli se pari o dispari");
-let userNumber = askNumber(validNumbers, "Scegli un numero da 1 a 5");
+let userNumber = askNumber(1, 5, "Scegli un numero da 1 a 5");
 const comNumber = randomizer(1, 5);
 const sum = numbersSum(userNumber, comNumber);
+const isSumEven = sum % 2 === 0;
 
 // # FUNZIONI
 
@@ -29,13 +29,13 @@ function askString(whitelist = [], message) {
 }
 
 // FUNZIONE ASKNUMBER
-function askNumber(whitelist = [], message) {
+function askNumber(min, max, message) {
   let number = parseInt(prompt(message));
 
-  while (!whitelist.includes(number)) {
+  while (max > number > min || isNaN(number)) {
     number = parseInt(prompt("Hai sbagliato. " + message));
-    return number;
   }
+  return number;
 }
 
 // FUNZIONE RANDOMIZER
@@ -63,4 +63,8 @@ function numbersSum(num1, num2) {
   return numSum;
 }
 
-console.log(userChoice, userNumber, comNumber, sum);
+console.log("La tua scelta: " + userChoice);
+console.log("Il tuo numero: " + userNumber);
+console.log("Il numero avversario: " + comNumber);
+console.log("La somma: " + sum);
+console.log(isSumEven ? "La somma è pari" : "La somma è dispari");
