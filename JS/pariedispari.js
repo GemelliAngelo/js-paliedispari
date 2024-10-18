@@ -66,11 +66,26 @@ function numbersSum(num1, num2) {
   return numSum;
 }
 
-// # CONSOLE LOG
+// # OUTPUT
 
-console.log("La tua scelta: " + userChoice);
-console.log("Il tuo numero: " + userNumber);
-console.log("Il numero avversario: " + comNumber);
-console.log("La somma: " + sum);
-console.log(isSumEven ? `"La somma è pari"` : "La somma è dispari");
-alert(winCondition ? "HAI VINTO!!!" : "HAI PERSO!!!");
+document.getElementById(
+  "game-data"
+).innerHTML = `<h2 class="py-3 text-center fw-bold text-info">Il tuo numero: ${userNumber}</h2>
+<h2 class="py-3 text-center fw-bold text-info">Il numero avversario: ${comNumber}</h2>
+<h2 class="py-3 text-center fw-bold text-info">La somma è: ${sum}</h2>`;
+
+isSumEven
+  ? (document.getElementById(
+      "game"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-warning">La somma è PARI</h2>`)
+  : (document.getElementById(
+      "game"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-warning">La somma è DISPARI</h2>`);
+
+winCondition
+  ? (document.getElementById(
+      "result"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-success">HAI VINTO!!!</h2>`)
+  : (document.getElementById(
+      "result"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-success">HAI PERSO!!!</h2>`);
