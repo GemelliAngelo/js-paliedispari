@@ -70,7 +70,8 @@ function numbersSum(num1, num2) {
 
 document.getElementById(
   "game-data"
-).innerHTML = `<h2 class="py-3 text-center fw-bold text-info">Il tuo numero: ${userNumber}</h2>
+).innerHTML = `<h2 class="py-3 text-center fw-bold text-info">La tua scelta: ${userChoice}</h2>
+<h2 class="py-3 text-center fw-bold text-info">Il tuo numero: ${userNumber}</h2>
 <h2 class="py-3 text-center fw-bold text-info">Il numero avversario: ${comNumber}</h2>
 <h2 class="py-3 text-center fw-bold text-info">La somma è: ${sum}</h2>`;
 
