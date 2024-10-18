@@ -22,10 +22,15 @@ function isPalindrome(string) {
   }
 }
 
-console.log("La tua parola: " + userChoice);
-console.log("La tua parola inversa: " + reverseduserChoice);
-console.log(
-  isuserChoicepalindrome
-    ? `${userChoice} è una parola palindroma!`
-    : `${userChoice} non è una parola palindroma!`
-);
+document.getElementById(
+  "info"
+).innerHTML = `<h2 class="py-3 text-center fw-bold text-info">La tua parola: ${userChoice}</h2>
+<h2 class="py-3 text-center fw-bold text-info">La tua parola inversa: ${reverseduserChoice}</h2>`;
+
+isuserChoicepalindrome
+  ? (document.getElementById(
+      "results"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-success">${userChoice} è una parola Palindroma</h2>`)
+  : (document.getElementById(
+      "results"
+    ).innerHTML = `<h2 class="py-3 text-center fw-bold text-warning">${userChoice} non è una parola Palindroma</h2>`);
