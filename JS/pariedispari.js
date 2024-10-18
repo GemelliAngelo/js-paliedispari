@@ -6,20 +6,47 @@
 // * Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // * Dichiariamo chi ha vinto.
 
-const userChoice = prompt("Scegli se pari o dispari");
-const userNumber = prompt("Scegli un numero da 1 a 5");
+// VARIABILI
+const validChoices = ["pari", "dispari"];
+let userChoice = askString(validChoices, "Scegli se pari o dispari");
+const userNumber = parseInt(prompt("Scegli un numero da 1 a 5"));
 const comNumber = randomizer(1, 5);
-const sum = numbersSum();
+const sum = numbersSum(userNumber, comNumber);
 
-function randomizer(min, max) {
-  if (min == Number && max == Number) {
-    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + 1;
-    return randomNumber;
-  } else {
-    console.log("Inserisci valori validi");
+// # FUNZIONI
+
+// FUNZIONE ASKSTRING
+function askString(whitelist = [], message) {
+  let userString = prompt(message);
+
+  while (!whitelist.includes(userString)) {
+    userString = prompt("Hai sbagliato. Scegli se pari o dispari");
   }
 }
 
-function numbersSum(num1, num2) {}
+// FUNZIONE RANDOMIZER
+function randomizer(min, max) {
+  min = parseInt(min);
+  max = parseInt(max);
 
-console.log(userChoice, userNumber, comNumber);
+  if (isNaN(min) || isNaN(max)) {
+    console.error("Minimo e Massimo accettano solo valori numerici");
+    return false;
+  }
+
+  if (min >= max) {
+    console.error("Il Minimo deve essere minore del Massimo");
+    return false;
+  }
+
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + 1;
+  return randomNumber;
+}
+
+// FUNZIONE SOMMA
+function numbersSum(num1, num2) {
+  const numSum = num1 + num2;
+  return numSum;
+}
+
+console.log(userChoice, userNumber, comNumber, sum);
