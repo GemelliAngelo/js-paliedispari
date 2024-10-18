@@ -8,7 +8,18 @@
 
 const userChoice = prompt("Scegli se pari o dispari");
 const userNumber = prompt("Scegli un numero da 1 a 5");
+const comNumber = randomizer(1, 5);
+const sum = numbersSum();
 
-const comNumber = Math.floor(Math.random() * 5) + 1;
+function randomizer(min, max) {
+  if (min == Number && max == Number) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + 1;
+    return randomNumber;
+  } else {
+    console.log("Inserisci valori validi");
+  }
+}
+
+function numbersSum(num1, num2) {}
 
 console.log(userChoice, userNumber, comNumber);
