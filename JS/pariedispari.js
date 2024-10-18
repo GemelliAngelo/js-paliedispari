@@ -15,6 +15,9 @@ let userNumber = askNumber(1, 5, "Scegli un numero da 1 a 5");
 const comNumber = randomizer(1, 5);
 const sum = numbersSum(userNumber, comNumber);
 const isSumEven = sum % 2 === 0;
+const winCondition =
+  (isSumEven && userChoice === "pari") ||
+  (!isSumEven && userChoice === "dispari");
 
 // # FUNZIONI
 
@@ -63,8 +66,11 @@ function numbersSum(num1, num2) {
   return numSum;
 }
 
+// # CONSOLE LOG
+
 console.log("La tua scelta: " + userChoice);
 console.log("Il tuo numero: " + userNumber);
 console.log("Il numero avversario: " + comNumber);
 console.log("La somma: " + sum);
-console.log(isSumEven ? "La somma è pari" : "La somma è dispari");
+console.log(isSumEven ? `"La somma è pari"` : "La somma è dispari");
+alert(winCondition ? "HAI VINTO!!!" : "HAI PERSO!!!");
