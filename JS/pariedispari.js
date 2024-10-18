@@ -35,7 +35,7 @@ function askString(whitelist = [], message) {
 function askNumber(min, max, message) {
   let number = parseInt(prompt(message));
 
-  while (max > number > min || isNaN(number)) {
+  while (number > max || number < min || isNaN(number)) {
     number = parseInt(prompt("Hai sbagliato. " + message));
   }
   return number;
