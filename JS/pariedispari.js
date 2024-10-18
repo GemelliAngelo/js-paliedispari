@@ -6,10 +6,13 @@
 // * Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // * Dichiariamo chi ha vinto.
 
-// VARIABILI
+// # VARIABILI
+
 const validChoices = ["pari", "dispari"];
+const validNumbers = ["1", "2", "3", "4", "5"];
+
 let userChoice = askString(validChoices, "Scegli se pari o dispari");
-const userNumber = parseInt(prompt("Scegli un numero da 1 a 5"));
+let userNumber = askNumber(validNumbers, "Scegli un numero da 1 a 5");
 const comNumber = randomizer(1, 5);
 const sum = numbersSum(userNumber, comNumber);
 
@@ -20,7 +23,18 @@ function askString(whitelist = [], message) {
   let userString = prompt(message);
 
   while (!whitelist.includes(userString)) {
-    userString = prompt("Hai sbagliato. Scegli se pari o dispari");
+    userString = prompt("Hai sbagliato. " + message);
+  }
+  return userString;
+}
+
+// FUNZIONE ASKNUMBER
+function askNumber(whitelist = [], message) {
+  let number = parseInt(prompt(message));
+
+  while (!whitelist.includes(number)) {
+    number = parseInt(prompt("Hai sbagliato. " + message));
+    return number;
   }
 }
 
